@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+	* {font-family: verdana;}
+	body {margin: 0;padding: 0;}
+	header {text-align: left; background: lightblue;padding: 20px;}
+	header img{max-width: 300px;margin: 15px;margin-left: 30px;}
+	header h2 {color: darkblue;text-align: center;}
+	section {padding: 20px 30px 0px 30px;color: darkblue;text-align: center;}
+	.report {padding: 20px;background: lightblue;}
+	.report p{width: 33%;}
+	.names p{width: 25%;}
+	section p {box-sizing: border-box;float: left;}
+	.center {text-align: center;}
+	.clearfix{clear: both;}
