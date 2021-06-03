@@ -8,13 +8,16 @@
 </head>
 <body>
 	<% 
-		String fullName = (String)session.getAttribute("fullName");
-		String maxMarks = (String)session.getAttribute("maxMarks");
-		String maxSubject = (String)session.getAttribute("maxSubject");
-		String minMarks = (String)session.getAttribute("minMarks");
-		String minSubject = (String)session.getAttribute("minSubject");
-		String average = (String)session.getAttribute("average");
-		String []subjects = (String[])session.getAttribute("subjects");
+		if(session.getAttribute("isLoggedIn") == null || !(boolean) session.getAttribute("isLoggedIn")){
+			response.sendRedirect("index.html");
+		}else{
+			String fullName = (String)session.getAttribute("fullName");
+			String maxMarks = (String)session.getAttribute("maxMarks");
+			String maxSubject = (String)session.getAttribute("maxSubject");
+			String minMarks = (String)session.getAttribute("minMarks");
+			String minSubject = (String)session.getAttribute("minSubject");
+			String average = (String)session.getAttribute("average");
+			String [] subjects = (String[])session.getAttribute("subjects");
 	%>
 	<div class="container">
 		<header><img class="logo" src="https://www.lambtoncollege.ca/images/header/Logo-Brand.png" /><h2>Group 11 Assignment 1</h2></header>
@@ -25,7 +28,7 @@
 		</section>
 		
 		<section class="names"><h3>Subjects</h3><br>
-			<% 
+			<% 	
 				out.print(subjects[0]);
 				for(int i=1;i<subjects.length;i++){
 					out.print(" , "+subjects[i]);
@@ -44,5 +47,6 @@
 		</section>
 		
 	</div>
+	<%} %>
 </body>
 </html>
