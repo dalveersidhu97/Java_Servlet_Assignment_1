@@ -17,11 +17,18 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/Welcome")
 public class Welcome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
     public Welcome() {}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
+		// send back to login if its not a post request
+		RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+		rd.include(request, response);
+		out.print("<p class='error'>Please Login First!</p>");
+		
 	}
 
 	/**
@@ -29,7 +36,6 @@ public class Welcome extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
